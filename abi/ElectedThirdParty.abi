@@ -1,0 +1,28 @@
+[
+  {
+    "inputs": [],
+    "name": "agreementReached",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bool",
+        "name": "_thirdPartyVote",
+        "type": "bool"
+      }
+    ],
+    "name": "setThirdPartyVote",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]
