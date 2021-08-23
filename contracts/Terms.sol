@@ -9,10 +9,10 @@ contract Terms {
     // Unix timestamp for expiry date
     uint256 expiry; 
 
-    // TODO: Support >1 employers pooling their funds together
+    // TODO: Support > 1 employers pooling their funds together
     address employerAddr;
 
-    // TODO: Support >1 contractors receiving payment
+    // TODO: Support > 1 contractors receiving payment
     address contractorAddr; 
 
     PaymentTerms paymentTerms;
@@ -67,7 +67,7 @@ contract ElectedThirdParty is ConsensusType {
 
 }
 
-// Contract creator (us) decides verifies task completion.
+// Contract creator (us) verifies task completion.
 contract CentralizedVerification is ConsensusType {
 
 }
