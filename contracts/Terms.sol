@@ -72,6 +72,17 @@ contract ConsensusType {
 // If all parties agree on task completion, then the transaction will be paid out.
 contract UnanimousVote is ConsensusType {
 
+    bool employerVote = false;
+
+    bool employeeVote = false;
+
+    function setEmployerVote(bool _employerVote) public {
+        employerVote = _employerVote;
+    }
+
+    function setEmployeeVote(bool _employeeVote) public {
+        employeeVote = _employeeVote;
+    }
 }
 
 // The parties can choose a third party to verify task completion. 
@@ -79,9 +90,10 @@ contract ElectedThirdParty is ConsensusType {
 
     address thirdParty;
 
-}
+    bool thirdPartyVote = false;
 
-// Contract creator (us) verifies task completion.
-contract CentralizedVerification is ConsensusType {
+    function setThirdPartyVote(bool _thirdPartyVote) public {
+        thirdPartyVote = _thirdPartyVote;
+    }
 
 }
