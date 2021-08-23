@@ -65,7 +65,9 @@ contract HourlyFee is PaymentTerms {
 /**
     ConsensusType is an interface describing how the job is verified.
  */
-contract ConsensusType {
+abstract contract ConsensusType {
+
+    function agreementReached() public virtual view returns(bool);
 
 }
 
@@ -83,6 +85,10 @@ contract UnanimousVote is ConsensusType {
     function setEmployeeVote(bool _employeeVote) public {
         employeeVote = _employeeVote;
     }
+
+    function agreementReached() public virtual override view returns(bool) {
+        return employeeVote && employerVote;
+    }
 }
 
 // The parties can choose a third party to verify task completion. 
@@ -94,6 +100,10 @@ contract ElectedThirdParty is ConsensusType {
 
     function setThirdPartyVote(bool _thirdPartyVote) public {
         thirdPartyVote = _thirdPartyVote;
+    }
+
+    function agreementReached() public virtual override view returns(bool) {
+        return thirdPartyVote;
     }
 
 }
