@@ -25,7 +25,9 @@ contract Terms {
 /**
     Payment terms is an interface describing how the employee will be paid.
  */
-contract PaymentTerms {
+abstract contract PaymentTerms {
+
+    function getPaymentAmount() public virtual view returns(uint);
 
 }
 
@@ -34,16 +36,28 @@ contract FlatFee is PaymentTerms {
     // TODO: How can we generalize this to other tokens and stable coins?
     uint amtInWei;
 
+    function getPaymentAmount() public virtual override view returns(uint) {
+        return amtInWei;
+    }
+
 }
 
 contract HourlyFee is PaymentTerms {
 
     uint hoursWorked;
 
-    uint hourlyWage;
+    uint hourlyWageInWei;
+
+    uint maxFeeInWei; 
 
     // If hoursWorked * hourlyWage > maxFee, then only maxFee will be paid out.
-    uint maxFee; 
+    function getPaymentAmount() public virtual override view returns(uint) {
+        uint hourlyFee = hoursWorked * hourlyWageInWei;
+        if (hourlyFee > maxFeeInWei) {
+            return maxFeeInWei;
+        }
+        return hourlyFee;
+    }
 
 }
 
