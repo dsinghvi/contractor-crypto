@@ -1,1 +1,56 @@
-[]
+[
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "_taskDescription",
+        "type": "string"
+      },
+      {
+        "internalType": "address payable",
+        "name": "_employerAddr",
+        "type": "address"
+      },
+      {
+        "internalType": "address payable",
+        "name": "_contractorAddr",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "inputs": [],
+    "name": "employerDepositMaxTaskFee",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getContractBalance",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bool",
+        "name": "workCompleted",
+        "type": "bool"
+      }
+    ],
+    "name": "setWorkStatus",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]
